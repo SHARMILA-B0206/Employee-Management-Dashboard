@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management Dashboard</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ---------- Header ---------- -->
+    <div class="header">
+        <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
+        <div class="dateTime">
+            <span id="todayDate">Today:</span>
+            <span id="currentTime">Time:</span>
+        </div>
+    </div>
+
+    <div class="pageWrap">
+
+        <!-- ---------- Loading message ---------- -->
+        <div id="loadingMessage"></div>
+
+        <!-- ---------- Search ---------- -->
+        <div class="card searchCard">
+            <h2>Search Employee</h2>
+            <div class="searchBar">
+                <input type="text" id="searchInput" placeholder="Enter employee name...">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <!-- ---------- Department filter ---------- -->
+        <div class="card">
+            <h2>Department</h2>
+            <div class="filterBar">
+                <button class="filterBtn active">All Employees</button>
+                <button class="filterBtn">IT</button>
+                <button class="filterBtn">HR</button>
+                <button class="filterBtn">Finance</button>
+                <button class="filterBtn">Marketing</button>
+            </div>
+        </div>
+
+        <!-- ---------- Sort ---------- -->
+        <div class="card sortCard">
+            <h2>Sort Employees</h2>
+            <select id="sortSelect">
+                <option value="">Default Order</option>
+                <option value="nameAsc">Name (A - Z)</option>
+                <option value="nameDesc">Name (Z - A)</option>
+                <option value="ageAsc">Age (Low - High)</option>
+                <option value="ageDesc">Age (High - Low)</option>
+                <option value="salaryAsc">Salary (Low - High)</option>
+                <option value="salaryDesc">Salary (High - Low)</option>
+            </select>
+        </div>
+
+        <!-- ---------- Employee count ---------- -->
+        <div class="card countCard" id="employeeCount">Employee Count: 0</div>
+
+        <!-- ---------- Stats ---------- -->
+        <div class="statsGrid">
+            <div class="statBox">
+                <p class="statLabel">Total Employees</p>
+                <p class="statValue" id="statTotalEmployees">0</p>
+            </div>
+            <div class="statBox">
+                <p class="statLabel">Total Salary</p>
+                <p class="statValue" id="statTotalSalary">₹0</p>
+            </div>
+            <div class="statBox">
+                <p class="statLabel">Average Salary</p>
+                <p class="statValue" id="statAverageSalary">₹0</p>
+            </div>
+            <div class="statBox">
+                <p class="statLabel">Highest Salary</p>
+                <p class="statValue" id="statHighestSalary">₹0</p>
+            </div>
+        </div>
+
+        <!-- ---------- Highest paid employee ---------- -->
+        <div class="card highestCard">
+            <h2><i class="fa-solid fa-trophy"></i> Highest Paid Employee</h2>
+            <p id="highestPaid">No employee available</p>
+        </div>
+
+        <!-- ---------- Employee cards ---------- -->
+        <div id="employeeContainer">
+            <!-- employee cards inserted dynamically via JS -->
+        </div>
+
+        <!-- ---------- Add employee form ---------- -->
+        <div class="card formSection">
+            <h2>ADD EMPLOYEE</h2>
+
+            <div class="formGrid">
+                <div class="formField">
+                    <label for="nameInput"><i class="fa-solid fa-user"></i> Name</label>
+                    <input type="text" id="nameInput" placeholder="Enter employee name">
+                </div>
+
+                <div class="formField">
+                    <label for="ageInput"><i class="fa-solid fa-cake-candles"></i> Age</label>
+                    <input type="number" id="ageInput" placeholder="Enter employee age">
+                </div>
+
+                <div class="formField">
+                    <label for="emailInput"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" id="emailInput" placeholder="Enter employee email">
+                </div>
+
+                <div class="formField">
+                    <label for="departmentInput"><i class="fa-solid fa-building"></i> Department</label>
+                    <select id="departmentInput">
+                        <option value="">Select Department</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+
+                <div class="formField">
+                    <label for="salaryInput"><i class="fa-solid fa-sack-dollar"></i> Salary</label>
+                    <input type="number" id="salaryInput" placeholder="Enter salary">
+                </div>
+            </div>
+
+            <button id="addEmployeeBtn"><i class="fa-solid fa-plus"></i> Add Employee</button>
+
+            <div id="errorBox"></div>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
